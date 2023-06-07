@@ -31,4 +31,4 @@ jobs:
       - name: Install npm dependencies
         run: npm ci
       - name: Build app
-        run: npm build --if-present
+        run: npm run build --if-present
