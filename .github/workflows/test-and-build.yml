@@ -8,10 +8,7 @@ on:
 
 jobs:
   test:
-    strategy:
-      matrix:
-        command: [ubuntu-latest]
-    runs-on: $
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -24,10 +21,7 @@ jobs:
         run: npm test
 
   build:
-    strategy:
-      matrix:
-        command: [ubuntu-latest]
-    runs-on: $
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
