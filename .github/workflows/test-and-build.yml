@@ -7,11 +7,11 @@ on:
     branches: [main]
 
 jobs:
-  build-and-test:
+  test:
     strategy:
       matrix:
-        command: [test, build]
-    runs-on: ubuntu-latest
+        command: [ubuntu-latest]
+    runs-on: $
 
     steps:
       - name: Checkout
@@ -20,5 +20,21 @@ jobs:
         uses: actions/setup-node@v3
       - name: Install npm dependencies
         run: npm ci
-      - name: Command $
-        run: npm $
+      - name: Run unit tests
+      - run: npm test
+
+  build:
+    strategy:
+      matrix:
+        command: [ubuntu-latest]
+    runs-on: $
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Build app
+      - run: npm build --if-present
