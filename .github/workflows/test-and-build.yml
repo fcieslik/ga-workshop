@@ -7,8 +7,18 @@ on:
     branches: [main]
 
 jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Npm audit
+        bash: |
+          npm config set audit-level critical
+          npm audit --registry="https://registry.npmjs.org"
+
   test:
     runs-on: ubuntu-latest
+    needs: [audit]
 
     steps:
       - name: Checkout
@@ -27,6 +37,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    needs: [audit]
 
     steps:
       - name: Checkout
