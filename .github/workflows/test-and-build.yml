@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Npm audit
-        bash: |
+        run: |
           npm config set audit-level critical
           npm audit --registry="https://registry.npmjs.org"
 
