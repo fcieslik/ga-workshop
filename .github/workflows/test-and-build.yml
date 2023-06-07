@@ -10,8 +10,8 @@ jobs:
   build-and-test:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: $
+        command: [test, build]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -20,6 +20,5 @@ jobs:
         uses: actions/setup-node@v3
       - name: Install npm dependencies
         run: npm ci
-      - run: |
-          npm build --if-present
-          npm test
+      - name: Command $
+        run: npm $
