@@ -1,5 +1,5 @@
 name: Checkout, Install node and dependencies
-description: Reusable ste
+description: Reusable step
 
 runs:
   using: 'composite'
