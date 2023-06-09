@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "format:check": "prettier . --check --ignore-path .gitignore",
-    "format:fix": "prettier . --check --ignore-path .gitignore"
+    "format:fix": "prettier . --write --ignore-path .gitignore"
   },
   "dependencies": {
     "react": "^18.2.0",
