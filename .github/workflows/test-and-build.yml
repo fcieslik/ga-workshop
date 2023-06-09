@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout and Setup Node
-        uses: ./.github/actions/steps/checkout-install
+        uses: ./.github/actions/checkout-install
       - name: Check formatting with prettier
         run: npm run format:check
 
