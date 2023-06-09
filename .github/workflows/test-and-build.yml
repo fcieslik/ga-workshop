@@ -25,15 +25,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-      - uses: actions/cache@v3
-        id: npm-cache
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('**/package-lock.json') }}
-      - name: Install npm dependencies
-        run: npm ci
+      - name: Checkout and Setup Node
+        uses: ./.github/actions/checkout-install-cache
       - name: Npm audit
         run: |
           npm config set audit-level critical
@@ -46,15 +39,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-      - uses: actions/cache@v3
-        id: npm-cache
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('**/package-lock.json') }}
-      - name: Install npm dependencies
-        run: npm ci
+      - name: Checkout and Setup Node
+        uses: ./.github/actions/checkout-install-cache
       - name: Run unit tests
         run: npm test
 
@@ -65,14 +51,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-      - uses: actions/cache@v3
-        id: npm-cache
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('**/package-lock.json') }}
-      - name: Install npm dependencies
-        run: npm ci
+      - name: Checkout and Setup Node
+        uses: ./.github/actions/checkout-install-cache
       - name: Build app
         run: npm run build --if-present
