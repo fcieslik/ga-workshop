@@ -15,4 +15,5 @@ runs:
         path: ~/.npm
         key: npm-${{ hashFiles('**/package-lock.json') }}
     - name: Install npm dependencies
+      shell: bash
       run: npm ci
